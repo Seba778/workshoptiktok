@@ -1,28 +1,19 @@
 import { useState } from 'react';
 
-// Acepta tanto VITE_CHECKOUT_URL (link directo de Stripe) como VITE_API_URL (servidor backend)
-const CHECKOUT_URL = import.meta.env.VITE_CHECKOUT_URL || import.meta.env.VITE_API_URL || '';
+// Si VITE_API_URL está configurada (ej. tu server local en localhost:4000),
+// se usa esa. Si no, se llama a la función serverless de Vercel en /api,
+// que vive en el mismo dominio de la landing (no necesita Railway ni nada
+// corriendo aparte).
+const API_URL = import.meta.env.VITE_API_URL || '';
+const CHECKOUT_ENDPOINT = API_URL ? `${API_URL}/create-checkout-session` : '/api/create-checkout-session';
 
 export function useCheckout(dialogRef) {
   const [loading, setLoading] = useState(false);
-  const checkoutConfigured = Boolean(CHECKOUT_URL);
 
   const handleCheckout = async () => {
-    if (!checkoutConfigured) {
-      dialogRef?.current?.showModal();
-      return;
-    }
-
     setLoading(true);
     try {
-      // Si es un link directo de Stripe (https://buy.stripe.com/...) o un link externo
-      if (CHECKOUT_URL.startsWith('https://buy.stripe.com') || CHECKOUT_URL.startsWith('https://checkout.stripe.com')) {
-        window.location.assign(CHECKOUT_URL);
-        return;
-      }
-
-      // Si es un servidor backend backend
-      const res = await fetch(`${CHECKOUT_URL}/create-checkout-session`, { method: 'POST' });
+      const res = await fetch(CHECKOUT_ENDPOINT, { method: 'POST' });
       if (!res.ok) throw new Error('No se pudo crear la sesión de pago');
       const data = await res.json();
       if (data.url) {
@@ -38,5 +29,5 @@ export function useCheckout(dialogRef) {
     }
   };
 
-  return { handleCheckout, checkoutConfigured, loading };
+  return { handleCheckout, checkoutConfigured: true, loading };
 }
