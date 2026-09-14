@@ -1,15 +1,11 @@
 import { useState } from 'react';
 
-const API_URL = import.meta.env.VITE_API_URL || '';
+// Acepta tanto VITE_CHECKOUT_URL (link directo de Stripe) como VITE_API_URL (servidor backend)
+const CHECKOUT_URL = import.meta.env.VITE_CHECKOUT_URL || import.meta.env.VITE_API_URL || '';
 
-/**
- * Llama al backend para crear una sesión de Stripe Checkout y redirige
- * al usuario ahí. Mientras VITE_API_URL no esté configurada (o el backend
- * no esté desplegado todavía), abre el modal de "boceto" en su lugar.
- */
 export function useCheckout(dialogRef) {
   const [loading, setLoading] = useState(false);
-  const checkoutConfigured = Boolean(API_URL);
+  const checkoutConfigured = Boolean(CHECKOUT_URL);
 
   const handleCheckout = async () => {
     if (!checkoutConfigured) {
@@ -19,7 +15,14 @@ export function useCheckout(dialogRef) {
 
     setLoading(true);
     try {
-      const res = await fetch(`${API_URL}/create-checkout-session`, { method: 'POST' });
+      // Si es un link directo de Stripe (https://buy.stripe.com/...) o un link externo
+      if (CHECKOUT_URL.startsWith('https://buy.stripe.com') || CHECKOUT_URL.startsWith('https://checkout.stripe.com')) {
+        window.location.assign(CHECKOUT_URL);
+        return;
+      }
+
+      // Si es un servidor backend backend
+      const res = await fetch(`${CHECKOUT_URL}/create-checkout-session`, { method: 'POST' });
       if (!res.ok) throw new Error('No se pudo crear la sesión de pago');
       const data = await res.json();
       if (data.url) {
