@@ -2,30 +2,30 @@
    LA FÓRMULA DEL CARRITO NARANJA — Hoja de Estilos (Tema Dark Luxury)
    Marca: Kirk Fewell / Bunker Creative Agency.
    Tipografía: Playfair Display (títulos) + Inter (cuerpo), vía Google Fonts.
-   Paleta: Fondo oscuro (#0E1116) + acentos en naranja terracota (#D84E1B).
+   Paleta: Fondo negro puro (#000000) + acentos en naranja terracota (#D84E1B).
    ========================================================================= */
 
 :root {
-  --bg: #0e1116;
-  --bg-soft: #141922;
-  --panel: #161b22;
-  --panel-raised: #1c232e;
+  --bg: #000000;
+  --bg-soft: #0a0c0f;
+  --panel: #11141a;
+  --panel-raised: #161b22;
   --ink: #f2f2ec;
   --muted: #aeb2ba;
   --gold: #d84e1b;
   --gold-soft: #f06432;
   --gold-dim: #a63810;
-  --line: #232a36;
+  --line: #1c222b;
   --line-soft: rgba(216, 78, 27, 0.25);
   --paper: #e7e0cf;
   --paper-ink: #12141c;
-  --black: #0e1116;
+  --black: #000000;
 
   --font-heading: "Playfair Display", Georgia, serif;
   --font-body: "Inter", Arial, Helvetica, sans-serif;
 
-  --shadow-soft: 0 24px 48px -28px rgba(0, 0, 0, 0.65);
-  --shadow-card: 0 30px 60px -32px rgba(0, 0, 0, 0.75), 0 1px 0 rgba(255, 255, 255, 0.03) inset;
+  --shadow-soft: 0 24px 48px -28px rgba(0, 0, 0, 0.9);
+  --shadow-card: 0 30px 60px -32px rgba(0, 0, 0, 0.95), 0 1px 0 rgba(255, 255, 255, 0.03) inset;
   --shadow-gold: 0 18px 40px -22px rgba(216, 78, 27, 0.45);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -40,7 +40,7 @@ html {
 }
 body {
   margin: 0;
-  background: radial-gradient(ellipse 120% 60% at 50% -10%, #14171d 0%, var(--bg) 55%);
+  background: #000000;
   color: var(--ink);
   font-family: var(--font-body);
   line-height: 1.6;
@@ -89,7 +89,7 @@ h1 {
   font-size: clamp(3rem, 6.2vw, 5.2rem);
   line-height: 1.02;
   margin-bottom: 27px;
-  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
 }
 h2 {
   font-size: clamp(2.2rem, 4vw, 3.6rem);
@@ -193,29 +193,36 @@ summary:focus-visible {
 
 /* ---------- Placas CTA (Botones de compra a Stripe) ---------- */
 .btn-placa-wrapper {
-  display: inline-block;
-  max-width: 480px;
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 440px;
   width: 100%;
-  margin: 20px auto 0;
+  margin: 24px auto 0;
   text-decoration: none;
-  transition: transform 0.35s var(--ease), filter 0.35s var(--ease);
+  background: transparent;
+  box-shadow: none;
+  transition: transform 0.3s var(--ease), filter 0.3s var(--ease);
 }
 
 .btn-placa-img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 14px;
-  filter: drop-shadow(0 15px 30px rgba(216, 78, 27, 0.45));
+  mix-blend-mode: screen; /* Camufla completamente la caja negra sobre #000000 */
+  filter: contrast(125%) brightness(102%);
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .btn-placa-wrapper:hover {
-  transform: translateY(-3px) scale(1.02);
-  filter: brightness(1.08);
+  transform: scale(1.02);
+  filter: brightness(1.1);
 }
 
 .btn-placa-wrapper:active {
-  transform: translateY(0) scale(0.99);
+  transform: scale(0.98);
 }
 
 /* ---------- Urgency bar ---------- */
@@ -237,7 +244,7 @@ summary:focus-visible {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(13, 13, 13, 0.82);
+  background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
@@ -385,7 +392,7 @@ summary:focus-visible {
     border: 1px solid rgba(216, 78, 27, 0.45);
     border-radius: 18px;
     box-shadow: 
-      0 40px 90px -20px rgba(0, 0, 0, 0.95),
+      0 40px 90px -20px rgba(0, 0, 0, 1),
       0 0 65px -5px rgba(216, 78, 27, 0.25),
       inset 0 0 0 1px rgba(255, 255, 255, 0.08);
   }
@@ -483,7 +490,7 @@ summary:focus-visible {
   object-fit: contain;
   flex: none;
   border-radius: 12px;
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.6));
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.8));
   transition: transform 0.3s var(--ease);
 }
 .hero-learn-item:hover .hero-learn-icon-img {
@@ -515,7 +522,7 @@ summary:focus-visible {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(13, 13, 13, 0.72);
+  background: rgba(0, 0, 0, 0.82);
   backdrop-filter: blur(6px);
   border: 1px solid var(--line-soft);
   color: var(--ink);
@@ -529,7 +536,7 @@ summary:focus-visible {
     transform 0.3s var(--ease);
 }
 .mute-btn:hover {
-  background: rgba(13, 13, 13, 0.9);
+  background: #000000;
   transform: translateY(-1px);
 }
 .mute-btn span {
@@ -548,7 +555,7 @@ video.video {
 }
 .video {
   aspect-ratio: 16 / 9;
-  background: linear-gradient(160deg, #1b212b, #141922);
+  background: #080a0d;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -906,7 +913,7 @@ section {
 
 /* ---------- Bio ---------- */
 .bio {
-  background: linear-gradient(165deg, #171d26, #12161d);
+  background: var(--panel);
 }
 .bio p {
   color: var(--muted);
@@ -936,7 +943,7 @@ section {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 55%, rgba(0, 0, 0, 0.7) 100%);
+  background: linear-gradient(180deg, transparent 55%, rgba(0, 0, 0, 0.85) 100%);
   pointer-events: none;
 }
 .photo-caption {
@@ -996,7 +1003,7 @@ section {
 
 /* ---------- Brand note ---------- */
 .brand-note {
-  background: linear-gradient(165deg, #141922, #0e1116);
+  background: var(--bg-soft);
   text-align: center;
 }
 .brand-note .lead {
@@ -1020,7 +1027,7 @@ section {
 
 /* ---------- Bonus section ---------- */
 .bonus-section {
-  background: linear-gradient(165deg, #1f2733, #14171d);
+  background: var(--panel);
   border-top: 1px solid var(--line-soft);
 }
 .bonus-section h2 em {
@@ -1048,7 +1055,7 @@ section {
   padding: 26px;
   border: 1px solid var(--line-soft);
   border-radius: 10px;
-  background: linear-gradient(165deg, #171d26, #12161d);
+  background: var(--panel);
   box-shadow: var(--shadow-card);
 }
 .scarcity {
@@ -1125,7 +1132,7 @@ section {
   border: 1px solid var(--line-soft);
   border-radius: 10px;
   padding: 40px;
-  background: linear-gradient(165deg, #1a212c, #12161d);
+  background: var(--panel);
   box-shadow: var(--shadow-card);
 }
 .offer-card h3 {
@@ -1273,10 +1280,10 @@ dialog {
   border: 0;
   border-radius: 8px;
   padding: 36px;
-  box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.8);
 }
 dialog::backdrop {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(2px);
 }
 dialog h2 {
@@ -1496,7 +1503,7 @@ dialog .btn {
     right: 0;
     z-index: 30;
     display: flex;
-    background: rgba(13, 13, 13, 0.96);
+    background: rgba(0, 0, 0, 0.96);
     backdrop-filter: blur(8px);
     padding: 10px 18px calc(10px + env(safe-area-inset-bottom));
     border-top: 1px solid var(--line);

@@ -11,15 +11,14 @@ export default function ProductShowcase() {
   return (
     <section className="product-showcase" id="producto">
       <div className="wrap">
-        <p className="eyebrow">Te presento el workshop en vivo</p>
+        <p className="eyebrow"></p>
         <h2>
-          LA FÓRMULA DEL
+        
           <br />
-          <span>CARRITO NARANJA</span>
+          <span></span>
         </h2>
         <p className="product-intro">
-          3 horas en vivo con Kirk, más tres recursos para implementar y un ebook extra con la
-          promoción de cinco minutos.
+          
         </p>
         <img
           className="bundle-image"
@@ -30,8 +29,7 @@ export default function ProductShowcase() {
           loading="lazy"
         />
         <p className="digital-note">
-          Representación de recursos digitales; no incluye dispositivos ni materiales físicos.
-          El ebook para host es un extra sujeto a la promoción de cinco minutos.
+
         </p>
         <div className="bundle-labels stagger">
           {LABELS.map((item) => (

@@ -6,7 +6,6 @@ import Hero from './components/Hero';
 import ProductShowcase from './components/ProductShowcase';
 import ResourceDetails from './components/ResourceDetails';
 import Curriculum from './components/Curriculum';
-import Method from './components/Method';
 import ClientEvidence from './components/ClientEvidence';
 import Bio from './components/Bio';
 import WhoIsThisFor from './components/WhoIsThisFor';
@@ -34,9 +33,6 @@ export default function App() {
         </Reveal>
         <Reveal>
           <WhoIsThisFor />
-        </Reveal>
-        <Reveal>
-          <Method />
         </Reveal>
         <Reveal>
           <Curriculum />

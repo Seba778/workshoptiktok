@@ -1,11 +1,38 @@
-import kirkPhoto from '../assets/kirk-retrato.jpg';
+import React, { useRef, useEffect } from 'react';
 
 export default function Bio() {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          video.muted = false;
+          video.play();
+        });
+      }
+    }
+  }, []);
+
   return (
     <section className="bio" id="kirk">
       <div className="wrap split">
         <div className="photo">
-          <img src={kirkPhoto} alt="Kirk Fewell, fundador de Bunker Creative Agency" loading="lazy" />
+          <video 
+            ref={videoRef}
+            className="bio-video"
+            controls 
+            autoPlay
+            muted
+            loop
+            playsInline
+            style={{ width: '100%', height: 'auto', borderRadius: '8px', display: 'block' }}
+          >
+            <source src="/IMG_4754.MP4" type="video/mp4" />
+            Tu navegador no soporta videos.
+          </video>
           <span className="photo-caption">Kirk Fewell · Bunker Creative Agency</span>
         </div>
         <div>
