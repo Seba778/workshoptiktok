@@ -3,8 +3,11 @@ export default function Nav() {
     <header className="nav">
       <div className="wrap">
         <a className="brand" href="#inicio">
-          KIRK FEWELL
-          <small>CONSULTOR · ASESOR · CREATIVO</small>
+          <img 
+            src="/CARRITO_NARAJA.PNG" 
+            alt="La Fórmula del Carrito Naranja" 
+            style={{ height: "56px", width: "auto", display: "block" }} 
+          />
         </a>
         <a href="#inscripcion">Reservar por $27 ↗</a>
       </div>
