@@ -1,5 +1,25 @@
 import { useRef, useState } from 'react';
-import SplitWords from './SplitWords';
+
+const LEARN_ITEMS = [
+  {
+    icon: '🏪',
+    color: 'mint',
+    title: 'Abre tu tienda paso a paso',
+    body: 'Te enseño cómo abrir tu tienda en TikTok Shop, revisar los requisitos y quedar aprobado para vender.',
+  },
+  {
+    icon: '✏️',
+    color: 'pink',
+    title: 'Crea listings que vendan',
+    body: 'Vas a aprender cómo subir productos, escribir descripciones y hacer fotos de producto atractivas.',
+  },
+  {
+    icon: '▶️',
+    color: 'blue',
+    title: 'Domina la consola de LIVE',
+    body: 'Te muestro cómo usar la consola, fijar productos y generar transacciones en tus LIVE.',
+  },
+];
 
 export default function Hero({ bonus }) {
   const { active, label } = bonus;
@@ -29,66 +49,62 @@ export default function Hero({ bonus }) {
 
   return (
     <section className="hero" id="inicio">
-      <div className="wrap">
-        <div className="hero-flow">
-          <p className="eyebrow hero-i-eyebrow">Workshop en vivo con Kirk Fewell · En español</p>
-          <h1 className="hero-i-title">
-            <SplitWords text="LA FÓRMULA DEL" />
-            <br />
-            <em>
-              <SplitWords text="CARRITO NARANJA" startIndex={3} />
-            </em>
-          </h1>
-          <p className="hero-i-subtext">Antes de inscribirte, mirá este video.</p>
+      <div className="wrap hero-narrow">
+        <p className="hero-badge">
+          <span aria-hidden="true">🕐</span> En 3 horas, aprende a abrir tu tienda, publicar
+          tus productos y vender en vivo.
+        </p>
 
-          <aside className="hero-video-col hero-i-video">
-            <div className="hero-video-frame">
-              <video
-                ref={videoRef}
-                className="video"
-                src="/hero-video.mp4"
-                autoPlay
-                muted={muted}
-                loop
-                playsInline
-                preload="metadata"
-                aria-label="Descubre la fórmula del carrito naranja"
-              />
-              <button
-                type="button"
-                className="mute-btn"
-                onClick={toggleSound}
-                aria-pressed={!muted}
-                aria-label={muted ? 'Activar sonido del video' : 'Silenciar el video'}
-              >
-                {muted ? '🔇' : '🔊'}
-              </button>
-            </div>
-            <p className="hero-video-caption">
-              <strong>Antes de seguir, un mensaje de Kirk.</strong>
-              <br />
-              Contale en 60 segundos por qué armó este workshop y a quién le sirve.
-            </p>
-          </aside>
+        <div className="hero-video-frame hero-video-frame--wide">
+          <video
+            ref={videoRef}
+            className="video"
+            src="/hero-video.mp4"
+            autoPlay
+            muted={muted}
+            loop
+            playsInline
+            preload="metadata"
+            aria-label="Conoce el workshop"
+          />
+          <button
+            type="button"
+            className="mute-btn"
+            onClick={toggleSound}
+            aria-pressed={!muted}
+            aria-label={muted ? 'Activar sonido del video' : 'Silenciar el video'}
+          >
+            {muted ? '🔇' : '🔊'}
+          </button>
+        </div>
+        <p className="hero-video-tag">Conoce el workshop</p>
 
-          <p className="lead hero-i-lead">
-            Tienes un producto. O tienes las ganas de emprender. En un workshop en vivo de
-            <span className="hours"> 3 horas</span> vas a aprender la fórmula para preparar tu
-            negocio en TikTok Shop, usar el carrito naranja y crear LIVE con intención de
-            venta.
+        <h1 className="hero-headline">
+          Estás a <em>$27 dólares</em> de cambiarle la vida a tu negocio.
+        </h1>
+        <p className="hero-subtext">Y no me creas, míralo en acción.</p>
+
+        <a className="btn btn-orange" href="#inscripcion">
+          Quiero inscribirme · $27 USD <span aria-hidden="true">↗</span>
+        </a>
+
+        <div className="hero-learn">
+          <p className="eyebrow" style={{ textAlign: 'center' }}>
+            ¿Qué vas a aprender?
           </p>
-          <div className="offer-inline hero-i-offer">
-            <del>$199 USD</del>
-            <strong>Ahora $27 USD</strong>
-            <span className="capacity">Solo 100 cupos disponibles</span>
+          <div className="hero-learn-list stagger">
+            {LEARN_ITEMS.map((item) => (
+              <div className="hero-learn-item" key={item.title}>
+                <span className={`hero-learn-icon hero-learn-icon--${item.color}`} aria-hidden="true">
+                  {item.icon}
+                </span>
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                </div>
+              </div>
+            ))}
           </div>
-          <a className="btn hero-i-cta" href="#inscripcion">
-            Quiero mi lugar por $27 <span aria-hidden="true">↗</span>
-          </a>
-          <p className="time-note hero-i-note">
-            Workshop 100% en vivo por Zoom, martes 29 de septiembre · Si no llegás a verla en
-            directo, te compartimos la grabación después.
-          </p>
         </div>
 
         <div className={`reservation-promo${active ? '' : ' expired'}`} aria-label="Promoción de reserva">
@@ -116,10 +132,6 @@ export default function Hero({ bonus }) {
           </a>
           <p className="micro">{reservationMicro}</p>
         </div>
-
-        <p className="micro" style={{ textAlign: 'center' }}>
-          Con Kirk Fewell · Fundador de Bunker Creative Agency
-        </p>
 
         <div className="proof-strip">
           <div>

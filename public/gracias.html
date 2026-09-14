@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>¡Gracias por inscribirte! | La Fórmula del Carrito Naranja</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0e1116;
+        --panel: #161b22;
+        --ink: #f2f2ec;
+        --muted: #aeb2ba;
+        --gold: #c9a66b;
+        --line: #232a36;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: radial-gradient(ellipse 120% 60% at 50% -10%, #1a1e26 0%, var(--bg) 55%);
+        color: var(--ink);
+        font-family: 'Inter', Arial, Helvetica, sans-serif;
+        padding: 24px;
+      }
+      .card {
+        max-width: 520px;
+        width: 100%;
+        text-align: center;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 48px 36px;
+        background: linear-gradient(165deg, #171d26, #12161d);
+        box-shadow: 0 30px 60px -32px rgba(0, 0, 0, 0.75);
+      }
+      .check {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        border: 2px solid var(--gold);
+        display: grid;
+        place-items: center;
+        margin: 0 auto 22px;
+        font-size: 1.8rem;
+        color: var(--gold);
+      }
+      h1 {
+        font-size: 1.9rem;
+        font-weight: 800;
+        margin: 0 0 14px;
+      }
+      p {
+        color: var(--muted);
+        line-height: 1.65;
+        margin: 0 0 10px;
+        font-size: 1rem;
+      }
+      .highlight {
+        color: var(--ink);
+        font-weight: 600;
+      }
+      .badge {
+        display: inline-block;
+        margin-top: 18px;
+        padding: 8px 16px;
+        border: 1px solid var(--line);
+        border-radius: 30px;
+        font-size: 0.82rem;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="check">✓</div>
+      <h1>¡Listo, ya estás dentro!</h1>
+      <p>
+        Gracias por inscribirte a <strong>La Fórmula del Carrito Naranja</strong>. En los
+        <span class="highlight">próximos minutos</span> te va a llegar un mail con toda la
+        información a detalle: tu recibo de pago, el link de Zoom del workshop, y el link del
+        grupo de WhatsApp para cualquier duda antes del gran día.
+      </p>
+      <p>Si en un rato no lo ves, revisá la carpeta de spam o promociones.</p>
+      <span class="badge">Martes 29 de septiembre · En vivo por Zoom</span>
+    </div>
+  </body>
+</html>

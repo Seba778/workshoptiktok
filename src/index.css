@@ -353,8 +353,22 @@ summary:focus-visible {
   align-items: flex-start;
 }
 .hero-learn-icon {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   flex: none;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+.hero-learn-icon--mint {
+  background: #3ddc97;
+}
+.hero-learn-icon--pink {
+  background: #ff5fa2;
+}
+.hero-learn-icon--blue {
+  background: #4da9ff;
 }
 .hero-learn-item h3 {
   font-size: 1rem;
