@@ -10,7 +10,7 @@ export function Footer() {
           Formación ofrecida por Kirk Fewell / Bunker Creative Agency. La condición de agencia
           partner no implica que este workshop sea una certificación oficial de TikTok.
         </p>
-        <span>[Agregar contacto de soporte, términos y aviso de privacidad antes de publicar.]</span>
+        <span>Desarrollado por Sebastian Schamne. ; Contact sebastianschamne1@gmail.com</span>
       </div>
     </footer>
   );
