@@ -53,7 +53,7 @@ export default function Offer({ onCheckout, checkoutConfigured, loading }) {
             </div>
             <div>
               <dt>Fecha y hora</dt>
-              <dd>Martes 29 de septiembre</dd>
+              <dd>Martes 29 de septiembre - 11:00 am (Texas Time)</dd>
             </div>
             <div>
               <dt>Acceso a la grabación</dt>
