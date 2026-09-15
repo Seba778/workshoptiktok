@@ -67,7 +67,15 @@ export default function Offer({ onCheckout, checkoutConfigured, loading }) {
           <button className="btn" type="button" onClick={onCheckout} disabled={loading}>
             {loading ? 'Un momento…' : 'Quiero mi lugar por $27 ↗'}
           </button>
-          <p className="micro">[Agregar política de cambios y reembolsos]</p>
+          <p className="micro">Política de Cambios y Reembolsos
+
+Todas las ventas son finales. Debido a la naturaleza digital del workshop y a que la compra incluye acceso al evento en vivo y posteriormente a la grabación, no se realizan reembolsos una vez confirmado el pago.
+
+Si no puedes asistir en vivo, no pierdes tu compra: recibirás acceso a la grabación después del workshop.
+
+En caso de que el evento sea cancelado por parte del organizador, podrás elegir entre recibir el reembolso del monto pagado o transferir tu inscripción a una nueva fecha, si estuviera disponible.
+
+Las inscripciones no podrán canjearse por efectivo ni aplicarse a otros productos o servicios, salvo autorización expresa del organizador.</p>
           <p className="micro">
             Extra de $300: ebook gratis si completas la compra dentro de tu plazo de cinco
             minutos. <a href="#bonus">Ver promoción</a>.
