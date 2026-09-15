@@ -3,27 +3,16 @@ export default function Hero() {
     <section className="hero" id="inicio">
       <div className="wrap hero-narrow">
         
-        {/* Encabezado Autor */}
-        <div className="hero-author">
-          <span className="author-name">KIRK FEWELL</span>
-          <span className="author-title">Fundador de Bunker Creative Agency</span>
-        </div>
-        
-        <hr className="hero-divider" />
-
-        {/* Modalidad */}
-        <p className="eyebrow hero-eyebrow">WORKSHOP EN VIVO · EN ESPAÑOL</p>
-
-        {/* Imagen Título Principal (Achicada) */}
+        {/* Imagen Título Principal (Aún más achicada para ver la preview del video) */}
         <h1 className="hero-main-title">
           <img 
             src="/CARRITO_NARAJA.PNG" 
             alt="La Fórmula del Carrito Naranja" 
             style={{ 
-              maxWidth: "320px", 
+              maxWidth: "200px", 
               width: "100%", 
               height: "auto", 
-              margin: "0 auto 20px", 
+              margin: "0 auto 16px", 
               display: "block" 
             }} 
           />
