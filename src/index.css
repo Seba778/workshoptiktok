@@ -30,7 +30,7 @@
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* ---------- Reset & base ---------- */
+/* ---------- Reset & Base ---------- */
 * {
   box-sizing: border-box;
 }
@@ -40,7 +40,7 @@ html {
 }
 body {
   margin: 0;
-  background: #000000;
+  background: var(--bg);
   color: var(--ink);
   font-family: var(--font-body);
   line-height: 1.6;
@@ -52,10 +52,7 @@ a {
 button {
   font: inherit;
 }
-img {
-  max-width: 100%;
-  display: block;
-}
+img,
 video {
   max-width: 100%;
   display: block;
@@ -70,16 +67,11 @@ video {
   margin: auto;
 }
 
-/* ---------- Typography scale (Luxury & Impact Updates) ---------- */
-h1,
-h2,
-h3,
-p {
+/* ---------- Typography scale ---------- */
+h1, h2, h3, p {
   margin-top: 0;
 }
-h1,
-h2,
-h3 {
+h1, h2, h3 {
   font-family: var(--font-heading);
   font-weight: 700;
   letter-spacing: -0.015em;
@@ -103,8 +95,7 @@ h3 {
   line-height: 1.3;
   margin-bottom: 13px;
 }
-h1 em,
-h2 em {
+h1 em, h2 em {
   font-style: normal;
   color: var(--gold);
 }
@@ -155,10 +146,7 @@ h2 em {
   cursor: pointer;
   box-shadow: var(--shadow-gold);
   animation: btn-pulse 2.8s ease-in-out infinite;
-  transition:
-    transform 0.35s var(--ease),
-    box-shadow 0.35s var(--ease),
-    background 0.35s var(--ease);
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), background 0.35s var(--ease);
 }
 .btn:hover {
   background: linear-gradient(180deg, #ff7a45, var(--gold-soft));
@@ -178,12 +166,11 @@ h2 em {
 .btn:focus-visible,
 a:focus-visible,
 summary:focus-visible {
-  outline: 3px solid #7de7ed;
-  outline-offset: 5px;
+  outline: 2px solid var(--gold-soft);
+  outline-offset: 4px;
 }
 @keyframes btn-pulse {
-  0%,
-  100% {
+  0%, 100% {
     box-shadow: var(--shadow-gold), 0 0 0 0 rgba(216, 78, 27, 0.45);
   }
   50% {
@@ -191,7 +178,26 @@ summary:focus-visible {
   }
 }
 
-/* ---------- Placas CTA (Botones de compra a Stripe) ---------- */
+.btn-orange {
+  background: linear-gradient(180deg, #f06432, #d84e1b);
+  border-color: #d84e1b;
+  box-shadow: 0 18px 40px -22px rgba(216, 78, 27, 0.55);
+  animation-name: btn-pulse-orange;
+}
+.btn-orange:hover {
+  background: linear-gradient(180deg, #ff7a45, #e85924);
+  box-shadow: 0 26px 50px -18px rgba(216, 78, 27, 0.7);
+}
+@keyframes btn-pulse-orange {
+  0%, 100% {
+    box-shadow: 0 18px 40px -22px rgba(216, 78, 27, 0.55), 0 0 0 0 rgba(216, 78, 27, 0.45);
+  }
+  50% {
+    box-shadow: 0 18px 40px -22px rgba(216, 78, 27, 0.55), 0 0 0 12px rgba(216, 78, 27, 0);
+  }
+}
+
+/* Placas CTA */
 .btn-placa-wrapper {
   position: relative;
   display: inline-flex;
@@ -205,22 +211,19 @@ summary:focus-visible {
   box-shadow: none;
   transition: transform 0.3s var(--ease), filter 0.3s var(--ease);
 }
-
 .btn-placa-img {
   width: 100%;
   height: auto;
   display: block;
-  mix-blend-mode: screen; /* Camufla completamente la caja negra sobre #000000 */
+  mix-blend-mode: screen;
   filter: contrast(125%) brightness(102%);
   border-radius: 0;
   box-shadow: none;
 }
-
 .btn-placa-wrapper:hover {
   transform: scale(1.02);
   filter: brightness(1.1);
 }
-
 .btn-placa-wrapper:active {
   transform: scale(0.98);
 }
@@ -292,7 +295,6 @@ summary:focus-visible {
   max-width: 680px;
   text-align: center;
 }
-
 .hero-author {
   text-align: left;
 }
@@ -317,11 +319,9 @@ summary:focus-visible {
   border-top: 1px solid var(--line);
   margin: 14px 0 24px;
 }
-
 .hero-eyebrow {
   margin-bottom: 16px;
 }
-
 .hero-main-title {
   font-family: var(--font-heading);
   font-size: clamp(3rem, 6.2vw, 5.2rem);
@@ -337,7 +337,6 @@ summary:focus-visible {
   display: block;
   filter: drop-shadow(0 4px 15px rgba(216, 78, 27, 0.35));
 }
-
 .hero-pitch {
   margin-bottom: 28px;
 }
@@ -359,7 +358,6 @@ summary:focus-visible {
   color: var(--ink);
   font-weight: 500;
 }
-
 .hero-badge {
   display: inline-flex;
   align-items: center;
@@ -371,7 +369,7 @@ summary:focus-visible {
   line-height: 1.5;
 }
 
-/* ---------- Hero Video ---------- */
+/* Hero Video */
 .hero-video-frame {
   position: relative;
   isolation: isolate;
@@ -382,7 +380,6 @@ summary:focus-visible {
   background: var(--panel);
   transition: border-color 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }
-
 @media (min-width: 1024px) {
   .hero-video-frame {
     width: 920px;
@@ -391,21 +388,13 @@ summary:focus-visible {
     transform: translateX(-50%);
     border: 1px solid rgba(216, 78, 27, 0.45);
     border-radius: 18px;
-    box-shadow: 
-      0 40px 90px -20px rgba(0, 0, 0, 1),
-      0 0 65px -5px rgba(216, 78, 27, 0.25),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    box-shadow: 0 40px 90px -20px rgba(0, 0, 0, 1), 0 0 65px -5px rgba(216, 78, 27, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
   }
-
   .hero-video-frame:hover {
     border-color: var(--gold);
-    box-shadow: 
-      0 45px 100px -20px rgba(0, 0, 0, 1),
-      0 0 85px 0px rgba(216, 78, 27, 0.38),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+    box-shadow: 0 45px 100px -20px rgba(0, 0, 0, 1), 0 0 85px 0px rgba(216, 78, 27, 0.38), inset 0 0 0 1px rgba(255, 255, 255, 0.15);
   }
 }
-
 .hero-video-frame--wide video.video {
   position: relative;
   z-index: 1;
@@ -446,27 +435,6 @@ summary:focus-visible {
   font-size: 1rem;
   margin-bottom: 26px;
 }
-.btn-orange {
-  background: linear-gradient(180deg, #f06432, #d84e1b);
-  border-color: #d84e1b;
-  box-shadow: 0 18px 40px -22px rgba(216, 78, 27, 0.55);
-}
-.btn-orange:hover {
-  background: linear-gradient(180deg, #ff7a45, #e85924);
-  box-shadow: 0 26px 50px -18px rgba(216, 78, 27, 0.7);
-}
-@keyframes btn-pulse-orange {
-  0%,
-  100% {
-    box-shadow: 0 18px 40px -22px rgba(216, 78, 27, 0.55), 0 0 0 0 rgba(216, 78, 27, 0.45);
-  }
-  50% {
-    box-shadow: 0 18px 40px -22px rgba(216, 78, 27, 0.55), 0 0 0 12px rgba(216, 78, 27, 0);
-  }
-}
-.btn-orange {
-  animation-name: btn-pulse-orange;
-}
 
 .hero-learn {
   margin-top: 46px;
@@ -496,7 +464,6 @@ summary:focus-visible {
 .hero-learn-item:hover .hero-learn-icon-img {
   transform: translateY(-4px) scale(1.06);
 }
-
 .hero-learn-item h3 {
   font-size: 1rem;
   margin-bottom: 6px;
@@ -514,6 +481,8 @@ summary:focus-visible {
 .hero .proof-strip {
   text-align: left;
 }
+
+/* Media Component */
 .mute-btn {
   position: absolute;
   right: 16px;
@@ -531,9 +500,7 @@ summary:focus-visible {
   padding: 10px 16px;
   border-radius: 30px;
   cursor: pointer;
-  transition:
-    background 0.3s var(--ease),
-    transform 0.3s var(--ease);
+  transition: background 0.3s var(--ease), transform 0.3s var(--ease);
 }
 .mute-btn:hover {
   background: #000000;
@@ -645,7 +612,7 @@ video.video {
 /* ---------- Proof strip ---------- */
 .proof-strip {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   margin-top: 40px;
@@ -704,9 +671,7 @@ section {
   text-align: center;
   padding-bottom: 74px;
 }
-.product-showcase .eyebrow {
-  color: var(--gold-dim);
-}
+.product-showcase .eyebrow,
 .product-showcase h2 span {
   color: var(--gold-dim);
 }
@@ -757,6 +722,7 @@ section {
   color: var(--gold-dim);
   margin-bottom: 6px;
 }
+
 .hero .btn,
 .product-showcase .btn,
 .closing .btn {
@@ -865,7 +831,7 @@ section {
   margin: 0;
 }
 
-/* Temario como acordeón */
+/* Acordeón Temario */
 .accordion-list {
   margin-top: 30px;
   columns: 2;
@@ -1301,10 +1267,7 @@ dialog .btn {
   opacity: 0;
   transform: translateY(46px) scale(0.97);
   filter: blur(10px);
-  transition:
-    opacity 1.15s var(--ease),
-    transform 1.15s var(--ease),
-    filter 1.15s var(--ease);
+  transition: opacity 1.15s var(--ease), transform 1.15s var(--ease), filter 1.15s var(--ease);
   will-change: opacity, transform, filter;
 }
 .reveal.is-visible {
@@ -1312,13 +1275,10 @@ dialog .btn {
   transform: translateY(0) scale(1);
   filter: blur(0);
 }
-
 .stagger > * {
   opacity: 0;
   transform: translateY(18px);
-  transition:
-    opacity 0.55s var(--ease),
-    transform 0.55s var(--ease);
+  transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
 }
 .reveal.is-visible .stagger > * {
   opacity: 1;
@@ -1345,10 +1305,7 @@ dialog .btn {
   opacity: 0;
   transform: translateY(0.4em);
   filter: blur(4px);
-  transition:
-    opacity 0.65s var(--ease),
-    transform 0.65s var(--ease),
-    filter 0.65s var(--ease);
+  transition: opacity 0.65s var(--ease), transform 0.65s var(--ease), filter 0.65s var(--ease);
   transition-delay: calc(var(--i, 0) * 0.09s);
 }
 .reveal.is-visible .word-anim {
@@ -1358,15 +1315,9 @@ dialog .btn {
 }
 
 @keyframes glow-bloom {
-  0% {
-    box-shadow: 0 0 0 0 rgba(216, 78, 27, 0);
-  }
-  35% {
-    box-shadow: 0 0 60px 6px rgba(216, 78, 27, 0.45);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(216, 78, 27, 0);
-  }
+  0% { box-shadow: 0 0 0 0 rgba(216, 78, 27, 0); }
+  35% { box-shadow: 0 0 60px 6px rgba(216, 78, 27, 0.45); }
+  100% { box-shadow: 0 0 0 0 rgba(216, 78, 27, 0); }
 }
 .reveal.is-visible .offer-card,
 .reveal.is-visible .reservation-promo,
@@ -1375,9 +1326,7 @@ dialog .btn {
   animation: glow-bloom 1.6s var(--ease) 0.3s;
 }
 .reveal.is-visible .hero .btn {
-  animation:
-    btn-pulse 2.8s ease-in-out infinite,
-    glow-bloom 1.4s var(--ease) 0.9s;
+  animation: btn-pulse 2.8s ease-in-out infinite, glow-bloom 1.4s var(--ease) 0.9s;
 }
 
 /* =========================================================================
@@ -1415,10 +1364,6 @@ dialog .btn {
   .offer {
     grid-template-columns: 1fr;
     gap: 28px;
-  }
-  .hero .btn {
-    width: 100%;
-    min-width: 0;
   }
   .hero-video-frame video.video {
     aspect-ratio: 16 / 9;
@@ -1474,16 +1419,12 @@ dialog .btn {
   .method article:last-child {
     border-bottom: 0;
   }
-  .module:last-child {
-    grid-column: auto;
-  }
   .photo {
     min-height: 360px;
   }
-  .evidence {
-    grid-template-columns: 1fr;
-  }
-  .brand-note-grid {
+  .evidence,
+  .brand-note-grid,
+  .bundle-labels {
     grid-template-columns: 1fr;
   }
   .bundle-labels {

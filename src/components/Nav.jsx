@@ -2,14 +2,11 @@ export default function Nav() {
   return (
     <header className="nav">
       <div className="wrap">
-        <a className="brand" href="#inicio">
-          <img 
-            src="/CARRITO_NARAJA.PNG" 
-            alt="La Fórmula del Carrito Naranja" 
-            style={{ height: "56px", width: "auto", display: "block" }} 
-          />
+        <a className="brand" href="#">
+          KIRK FEWELL
+          <small>BUNKER CREATIVE AGENCY</small>
         </a>
-        <a href="#inscripcion">Reservar por $27 ↗</a>
+        <a href="#inscripcion">Acceder al Programa</a>
       </div>
     </header>
   );

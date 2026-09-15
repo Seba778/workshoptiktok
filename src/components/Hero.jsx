@@ -1,151 +1,100 @@
-import React, { useRef, useEffect, useState } from 'react';
-
-const STRIPE_LINK = "https://buy.stripe.com/TU_LINK_DE_STRIPE_AQUI";
-
 export default function Hero() {
-  const videoRef = useRef(null);
-  const [isMuted, setIsMuted] = useState(false);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          video.muted = true;
-          setIsMuted(true);
-          video.play();
-        });
-      }
-    }
-  }, []);
-
-  const handleUnmute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = false;
-      setIsMuted(false);
-    }
-  };
-
   return (
-    <section className="hero">
+    <section className="hero" id="inicio">
       <div className="wrap hero-narrow">
         
-        {/* Autor */}
+        {/* Encabezado Autor */}
         <div className="hero-author">
           <span className="author-name">KIRK FEWELL</span>
-          <span className="author-title">CONSULTOR · ASESOR CREATIVO</span>
+          <span className="author-title">Fundador de Bunker Creative Agency</span>
         </div>
-
+        
         <hr className="hero-divider" />
 
-        {/* Título Principal */}
-        <p className="eyebrow hero-eyebrow">WORKSHOP TIKTOK SHOP</p>
+        {/* Modalidad */}
+        <p className="eyebrow hero-eyebrow">WORKSHOP EN VIVO · EN ESPAÑOL</p>
+
+        {/* Imagen Título Principal */}
         <h1 className="hero-main-title">
-          <span>La Fórmula del Carrito Naranja</span>
+          <img 
+            src="/CARRITO_NARAJA.PNG" 
+            alt="La Fórmula del Carrito Naranja" 
+            style={{ 
+              maxWidth: "520px", 
+              width: "100%", 
+              height: "auto", 
+              margin: "0 auto 24px", 
+              display: "block" 
+            }} 
+          />
         </h1>
 
+        {/* Bajada / Copy Principal */}
+        <div className="hero-pitch">
+          <h2>
+            NO ESPERES A QUE ENTREN A TU LOCAL. <br />
+            <span>LLEVA TUS PRODUCTOS A SU PANTALLA.</span>
+          </h2>
+          <p>Abre tu TikTok Shop y dale una nueva forma de vender a tu negocio.</p>
+        </div>
+
+        {/* Duración con Icono de Reloj */}
+        <div className="hero-badge">
+          <svg 
+            width="24" 
+            height="24" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="var(--gold)" 
+            strokeWidth="2" 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            style={{ flexShrink: 0 }}
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <span>En 3 horas, aprende a abrir tu tienda, publicar tus productos y vender en vivo.</span>
+        </div>
+
         {/* Video Frame */}
-        <div className="hero-video-frame hero-video-frame--wide" style={{ position: 'relative' }}>
+        <div className="hero-video-frame hero-video-frame--wide">
           <video 
-            ref={videoRef}
             className="video" 
             controls 
+            autoPlay 
+            muted 
             playsInline 
-            poster="/poster.jpg"
+            poster="/thumbnail-hero.png"
           >
             <source src="/hero-video.mp4" type="video/mp4" />
-            Tu navegador no soporta videos.
+            Tu navegador no soporta el reproductor de video.
           </video>
-
-          {isMuted && (
-            <button 
-              onClick={handleUnmute}
-              style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                color: '#fff',
-                border: '1px solid rgba(255, 255, 255, 0.3)',
-                padding: '12px 24px',
-                borderRadius: '8px',
-                cursor: 'pointer',
-                fontSize: '14px',
-                fontWeight: '600',
-                zIndex: 10,
-                backdropFilter: 'blur(4px)',
-                letterSpacing: '0.5px'
-              }}
-            >
-              Hacé clic para activar el sonido
-            </button>
-          )}
         </div>
 
-        {/* Pitch & Placa CTA Principal */}
-        <div className="hero-pitch" style={{ marginTop: '36px' }}>
-          <h2>
-            Estás a <span>$27 dólares</span> de cambiarle la vida a tu negocio.
-          </h2>
-          <p className="muted">Y si no me crees, te veo en la sesión.</p>
+        {/* Sección CTA con Texto y Botón */}
+        <div className="hero-cta" style={{ textAlign: "center", marginTop: "40px" }}>
+          <h3 style={{ fontSize: "1.5rem", fontWeight: "bold", margin: "0 0 4px 0", color: "#fff" }}>
+            Estás a
+          </h3>
+          <p style={{ fontSize: "1.8rem", fontWeight: "bold", color: "var(--gold)", margin: "0 0 4px 0" }}>
+            $27 dólares
+          </p>
+          <h3 style={{ fontSize: "1.5rem", fontWeight: "bold", margin: "0 0 12px 0", color: "#fff" }}>
+            de cambiarle la vida a tu negocio.
+          </h3>
+          
+          <p style={{ fontSize: "0.95rem", color: "rgba(255, 255, 255, 0.7)", marginBottom: "20px" }}>
+            Y si no me creés, mirá la sesión.
+          </p>
 
-          <a 
-            href={STRIPE_LINK} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="btn-placa-wrapper"
-          >
+          <a href="#inscripcion" style={{ display: "inline-block" }}>
             <img 
-              src="/IMG_4845.PNG" 
+              src="/QUIERO_INSCRI.png" 
               alt="Quiero Inscribirme: $27 USD" 
-              className="btn-placa-img" 
+              style={{ maxWidth: "340px", width: "100%", height: "auto", display: "block", margin: "0 auto" }} 
             />
           </a>
-        </div>
-
-        {/* Grid de 3 Pilares con Iconos 3D */}
-        <div className="hero-learn">
-          <p className="eyebrow">¿QUÉ VAS A APRENDER?</p>
-          
-          <div className="hero-learn-list">
-            <div className="hero-learn-item">
-              <img 
-                src="/IMG_4840.PNG" 
-                alt="Abre tu tienda paso a paso" 
-                className="hero-learn-icon-img" 
-              />
-              <div>
-                <h3>Abre tu tienda paso a paso</h3>
-                <p>Te enseño cómo abrir tu tienda en TikTok Shop, revisar los requisitos y quedar aprobado para vender.</p>
-              </div>
-            </div>
-
-            <div className="hero-learn-item">
-              <img 
-                src="/IMG_4843.PNG" 
-                alt="Crea listings que vendan" 
-                className="hero-learn-icon-img" 
-              />
-              <div>
-                <h3>Crea listings que vendan</h3>
-                <p>Vas a aprender cómo subir productos, escribir descripciones y hacer fotos de producto atractivas.</p>
-              </div>
-            </div>
-
-            <div className="hero-learn-item">
-              <img 
-                src="/IMG_4844.PNG" 
-                alt="Domina la consola de LIVE" 
-                className="hero-learn-icon-img" 
-              />
-              <div>
-                <h3>Domina la consola de LIVE</h3>
-                <p>Te muestro cómo usar la consola, fijar productos y generar transacciones en tus LIVE.</p>
-              </div>
-            </div>
-          </div>
         </div>
 
       </div>
