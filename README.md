@@ -1,16 +1,22 @@
-# React + Vite
+La Fórmula del Carrito Naranja — Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Landing page de alta conversión desarrollada para el workshop en vivo *"La Fórmula del Carrito Naranja"*, enfocado en la apertura y escalado de negocios en TikTok Shop.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+##  Tecnologías Utilizadas
 
-## React Compiler
+* **React** (Componentes modulares y reutilizables)
+* **CSS Moderno** (Diseño responsivo, animaciones fluidas y optimización visual)
+* **Vite** (Entorno de desarrollo y empaquetado rápido)
+* **Stripe** (Integración de pasarela de pagos para checkout seguro)
+* **Vercel** (Despliegue y hosting continuo)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the Oxlint configuration
+##  Características Principales
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+* **Sección Hero optimizada:** Video integrado de vista previa con controles automáticos, logo responsivo y llamado a la acción directo.
+* **Diseño Minimalista y Directo:** Estructura pensada para retener la atención del usuario, con tipografías y contrastes de alta gama.
+* **Componente de Oferta Dinámico:** Insignias dinámicas con efectos de parpadeo para destacar la limitación de cupos y urgencia.
+* **Integración de Checkout:** Preparado y conectado para redirigir de forma fluida a la pasarela de pagos.
