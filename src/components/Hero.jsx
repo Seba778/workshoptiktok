@@ -3,7 +3,7 @@ export default function Hero() {
     <section className="hero" id="inicio">
       <div className="wrap hero-narrow">
         
-        {/* Imagen Título Principal (Aún más achicada para ver la preview del video) */}
+        {/* Imagen Título Principal */}
         <h1 className="hero-main-title">
           <img 
             src="/CARRITO_NARAJA.PNG" 
@@ -46,13 +46,14 @@ export default function Hero() {
           <span>En 3 horas, aprende a abrir tu tienda, publicar tus productos y vender en vivo.</span>
         </div>
 
-        {/* Video Frame */}
+        {/* Video Frame (con loop agregado) */}
         <div className="hero-video-frame hero-video-frame--wide">
           <video 
             className="video" 
             controls 
             autoPlay 
             muted 
+            loop
             playsInline 
             poster="/thumbnail-hero.png"
           >
