@@ -14,16 +14,16 @@ export default function Hero() {
         {/* Modalidad */}
         <p className="eyebrow hero-eyebrow">WORKSHOP EN VIVO · EN ESPAÑOL</p>
 
-        {/* Imagen Título Principal */}
+        {/* Imagen Título Principal (Achicada) */}
         <h1 className="hero-main-title">
           <img 
             src="/CARRITO_NARAJA.PNG" 
             alt="La Fórmula del Carrito Naranja" 
             style={{ 
-              maxWidth: "520px", 
+              maxWidth: "320px", 
               width: "100%", 
               height: "auto", 
-              margin: "0 auto 24px", 
+              margin: "0 auto 20px", 
               display: "block" 
             }} 
           />
@@ -85,7 +85,7 @@ export default function Hero() {
           </h3>
           
           <p style={{ fontSize: "0.95rem", color: "rgba(255, 255, 255, 0.7)", marginBottom: "20px" }}>
-            Y si no me creés, mirá la sesión.
+            Y si no me querés creer, mirá la sesión.
           </p>
 
           <a href="#inscripcion" style={{ display: "inline-block" }}>
