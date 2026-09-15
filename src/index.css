@@ -609,6 +609,14 @@ video.video {
   box-shadow: 0 0 8px 1px rgba(216, 78, 27, 0.7);
 }
 
+@keyframes blink-badge {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.capacity.blinking {
+  animation: blink-badge 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
 /* ---------- Proof strip ---------- */
 .proof-strip {
   display: grid;

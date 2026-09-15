@@ -3,7 +3,7 @@ export default function Offer({ onCheckout, checkoutConfigured, loading }) {
     <section id="inscripcion" className="bio">
       <div className="wrap offer">
         <div>
-          <p className="eyebrow">Solo 100 cupos disponibles</p>
+          <p className="eyebrow">Solo 10 cupos disponibles</p>
           <h2>
             Este workshop es
             <br />
@@ -40,7 +40,7 @@ export default function Offer({ onCheckout, checkoutConfigured, loading }) {
             $27 <span style={{ fontSize: '1rem' }}>USD</span>
           </p>
           <p className="saving">Ahorras $172.</p>
-          <span className="capacity">Solo 100 cupos disponibles</span>
+          <span className="capacity blinking">Solo 10 cupos disponibles</span>
           <p className="micro">Da el siguiente paso: reserva tu lugar.</p>
           <dl>
             <div>

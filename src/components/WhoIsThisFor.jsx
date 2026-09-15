@@ -20,11 +20,11 @@ export default function WhoIsThisFor() {
         <div>
           <p className="eyebrow">¿Es para ti?</p>
           <h2>
-            Para quienes tienen
+            Solo si quieres aumentar tus ventas, 
             <br />
-            un producto. Y para quienes
+             tener más exposición y entrar en el mundo de las ventas en vivo, 
             <br />
-            quieren emprender.
+            no es para cualquiera.
           </h2>
         </div>
         <div>
